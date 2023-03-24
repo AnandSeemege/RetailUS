@@ -5,5 +5,5 @@
     <classes>
       <class name="com.andy.usRetail.automation.TestCaseSample1"/>
     </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+  </test>
+</suite> 

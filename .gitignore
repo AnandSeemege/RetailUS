@@ -1,3 +1,4 @@
-TestLogs
-
-test-output
+/TestLogs/
+/test-output/
+/target/
+.DS_Store

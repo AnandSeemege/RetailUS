@@ -1,6 +1,6 @@
 /TestLogs/
 /test-output/
-/target/
+/target/*
 /allure-results/
 .DS_Store
 .classpath

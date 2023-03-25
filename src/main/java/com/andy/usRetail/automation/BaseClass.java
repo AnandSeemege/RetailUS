@@ -3,6 +3,7 @@ package com.andy.usRetail.automation;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.TestNG;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -22,11 +23,9 @@ public class BaseClass {
 	
 	@BeforeTest
 	public static void preConditions() {
+		
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-		
-//		WebDriverManager.firefoxdriver().setup();
-//		driver = new FirefoxDriver();
 		
 		driver.manage().window().maximize();
 		logger.info("Opened Browser and maximised");

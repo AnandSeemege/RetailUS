@@ -2,8 +2,12 @@ package com.andy.usRetail.automation;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,9 +22,12 @@ public class BaseClass {
 	
 	@BeforeTest
 	public static void preConditions() {
-		System.setProperty("webdriver.chrome.driver",
-				"/Users/anand/Documents/TestingEssentials/selenium/Drivers/chromedriver");
+		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
+		
+//		WebDriverManager.firefoxdriver().setup();
+//		driver = new FirefoxDriver();
+		
 		driver.manage().window().maximize();
 		logger.info("Opened Browser and maximised");
 		String url = "https://www.macys.com";

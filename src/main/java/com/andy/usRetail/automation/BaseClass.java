@@ -1,8 +1,9 @@
 package com.andy.usRetail.automation;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -16,9 +17,9 @@ import org.apache.logging.log4j.Logger;
  *
  */
 public class BaseClass {
-	
-	static WebDriver driver;
-	private static Logger logger = LogManager.getLogger(BaseClass.class);
+	 
+	public static WebDriver driver;
+	public static Logger logger = LogManager.getLogger(BaseClass.class);
 	
 	@BeforeTest
 	public static void preConditions() {
@@ -35,6 +36,7 @@ public class BaseClass {
 		driver.get(url);
 		System.out.println("Macys...");
 		logger.info("Opened Macys Web Application");
+		driver.findElement(By.id("closeButton")).click();
 	}
 	
 	@AfterTest

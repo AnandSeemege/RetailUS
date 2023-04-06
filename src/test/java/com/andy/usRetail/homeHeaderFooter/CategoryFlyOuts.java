@@ -10,8 +10,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.andy.usRetail.automation.BaseClass;
+import com.andy.usRetail.pages.HomePageAll;
 
 public class CategoryFlyOuts extends BaseClass {
+	
+	HomePageAll homePageAll = new HomePageAll(driver);
 
 	@Test
 	public void verifyPresenceOfCategories() {
@@ -29,6 +32,9 @@ public class CategoryFlyOuts extends BaseClass {
 		logger.info("Checking if categories are matching...");
 		Assert.assertTrue(b);
 		logger.info("Categories are as expected");
+		
+//		driver.findElement(By.xpath("(//a[text()='Order Tracking'])[1]")).click();
+		homePageAll.clickOnOrderTracking();
 	}
 
 }

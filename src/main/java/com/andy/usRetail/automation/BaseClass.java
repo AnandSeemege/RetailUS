@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import com.andy.usRetail.pages.HomePageAll;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import org.apache.logging.log4j.LogManager;
@@ -18,11 +20,11 @@ import org.apache.logging.log4j.Logger;
  */
 public class BaseClass {
 	 
-	public static WebDriver driver;
+	public WebDriver driver;
 	public static Logger logger = LogManager.getLogger(BaseClass.class);
 	
 	@BeforeTest
-	public static void preConditions() {
+	public void preConditions() {
 		
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
@@ -36,11 +38,14 @@ public class BaseClass {
 		driver.get(url);
 		System.out.println("Macys...");
 		logger.info("Opened Macys Web Application");
-		driver.findElement(By.id("closeButton")).click();
+		
+		HomePageAll homePageAll = new HomePageAll(driver);		
+		homePageAll.closeShippingConfirmationPopup();
+//		driver.findElement(By.id("closeButton")).click();
 	}
 	
 	@AfterTest
-	public static void postConditions() throws InterruptedException {
+	public void postConditions() throws InterruptedException {
 		Thread.sleep(2000);
 		driver.quit();
 		logger.info("Closed the session");
